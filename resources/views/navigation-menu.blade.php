@@ -16,6 +16,18 @@
                         {{ __('Inicio') }}
                     </x-jet-nav-link>
 
+                    @can('eps.index')
+                        <x-jet-nav-link href="{{ route('eps.index') }}" :active="request()->routeIs('eps.index')">
+                            {{ __('Eps') }}
+                        </x-jet-nav-link>
+                    @endcan
+
+                    @can('result.index')
+                        <x-jet-nav-link href="{{ route('result.index') }}" :active="request()->routeIs('result.index')">
+                            {{ __('Resultados') }}
+                        </x-jet-nav-link>
+                    @endcan
+
                     @can('users.index')
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                             {{ __('Usuarios') }}
@@ -155,6 +167,18 @@
                 {{ __('Inicio') }}
             </x-jet-responsive-nav-link>
 
+            @can('result.index')
+                <x-jet-responsive-nav-link href="{{ route('result.index') }}" :active="request()->routeIs('result.index')">
+                    {{ __('Resultados') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+
+            @can('eps.index')
+                <x-jet-responsive-nav-link href="{{ route('eps.index') }}" :active="request()->routeIs('eps.index')">
+                    {{ __('Eps') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            
             @can('users.index')
                 <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                     {{ __('Usuarios') }}

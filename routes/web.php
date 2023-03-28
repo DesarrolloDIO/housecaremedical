@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\EpsController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\GrupoController;
 use App\Http\Controllers\Admin\RolesController;
-use App\Http\Controllers\Admin\ProyectController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\AuditoriaController;
+use App\Http\Controllers\Admin\ResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +33,10 @@ Route::middleware([
 
     Route::group(['middleware' => ['auth', 'permission']], function() {
 
-        Route::resource('category', CategoryController::class);
-        Route::resource('proyect', ProyectController::class);
-        Route::resource('group', GrupoController::class);
+        Route::resource('eps', EpsController::class);
+        Route::resource('result', ResultController::class);
         Route::resource('users', UserController::class);
         Route::resource('roles', RolesController::class);
-        Route::resource('auditorias', AuditoriaController::class);
     });
 });
 

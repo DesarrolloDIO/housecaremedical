@@ -22,6 +22,18 @@ class BasicAdminPermissionSeeder extends Seeder
         // create permissions
         $permissions = [
 
+            'eps.index',
+            'eps.show',
+            'eps.create',
+            'eps.edit',
+            'eps.delete',
+
+            'result.index',
+            'result.show',
+            'result.create',
+            'result.edit',
+            'result.delete',
+
             'roles.index',
             'roles.show',
             'roles.create',

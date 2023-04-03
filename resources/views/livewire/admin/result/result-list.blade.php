@@ -26,8 +26,9 @@
             <thead class="bg-gray-50">
                 <tr>
                     <th scope="col" class="px-6 py-4 font-medium text-gray-900">ID</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Codigo</th>
                     <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nombre</th>
-                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Correo</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">identificación del paciente</th>
                     <th scope="col" class="px-6 py-4 font-medium text-gray-900">Estado</th>
                     <th scope="col" class="px-6 py-4 font-medium text-gray-900">Creado por</th>
                     <th scope="col" class="px-6 py-4 font-medium text-gray-900">Fecha de creacion</th>
@@ -38,8 +39,9 @@
                 @forelse ($data as $item)
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">{{ $item->id }}</td>
+                        <td class="px-6 py-4">{{ $item->code }}</td>
                         <td class="px-6 py-4">{{ $item->name }}</td>
-                        <td class="px-6 py-4">{{ $item->email }}</td>
+                        <td class="px-6 py-4">{{ $item->patient_identification }}</td>
                         <td class="px-6 py-4">
                             <div class="flex">
                                 @if($item->estatus)
@@ -143,43 +145,7 @@
                     <div class="">
                         Nombre:
                     </div>
-                    {{ $name }}
                 </div>
-
-                <div class="p-1 border-b border-r border-gray-100">
-                    <div class="">
-                        Correo:
-                    </div>
-                    {{ $email }}
-                </div>
-
-                <div class="p-1 border-b border-r border-gray-100">
-                    <div class="">
-                        Teléfono:
-                    </div>
-                    {{ $phone }}
-                </div>
-
-                <div class="p-1 border-b border-r border-gray-100">
-                    <div class="">
-                        Estado:
-                    </div>
-
-                    @if($estatus)
-                        Activo
-                    @else
-                        Desactivado
-                    @endif
-                </div>
-
-                <div class="col-span-1 md:col-span-2 p-1 border-b border-r border-gray-100">
-                    <div class="">
-                        Dirección:
-                    </div>
-                    {{ $address }}
-                </div>
-
-
             </div>
 
         </x-slot>

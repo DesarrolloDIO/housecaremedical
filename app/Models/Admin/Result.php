@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\User;
 use App\Models\File;
 use App\Models\Admin\Eps;
 use Illuminate\Database\Eloquent\Model;
@@ -29,8 +30,23 @@ class Result extends Model
             return $this->morphMany(File::class, 'fileable');
         }
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function update_user(){
+        return $this->belongsTo(User::class, 'update_user_id');
+    }
+    
     public function eps()
         {
             return $this->belongsTo(Eps::class);
         }
+        
+    public function scopeName($query, $name){
+        if($name != ''){
+            return $this->where('name', 'like', '%'.$name.'%');
+        }
+    }
+
 }

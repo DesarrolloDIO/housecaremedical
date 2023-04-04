@@ -85,9 +85,9 @@ class EpsList extends Component
 
         $this->validate();
 
-        $user = Eps::where('id', $this->id_use)->first();
+        $eps = Eps::where('id', $this->id_use)->first();
 
-        $user->update([
+        $eps->update([
             'name'    => $this->name,
             'phone'   => $this->phone,
             'address' => $this->address,

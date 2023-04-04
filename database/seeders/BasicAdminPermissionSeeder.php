@@ -34,6 +34,12 @@ class BasicAdminPermissionSeeder extends Seeder
             'result.edit',
             'result.delete',
 
+            'result-details.index',
+            'result-details.show',
+            'result-details.create',
+            'result-details.edit',
+            'result-details.delete',
+
             'roles.index',
             'roles.show',
             'roles.create',

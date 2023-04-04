@@ -31,7 +31,7 @@
                 </div>
 
                 <div>
-                    <x-jet-label for="identification_type" value="{{ __('Typo de identificación') }}" />
+                    <x-jet-label for="identification_type" value="{{ __('Tipo de identificación') }}" />
                     <x-jet-input id="identification_type" class="block mt-1 w-full" type="text" name="identification_type" wire:model.lazy="identification_type" required autocomplete="identification_type" />
                     <x-jet-input-error for="identification_type" />
                 </div>
@@ -47,7 +47,7 @@
                     <x-jet-input id="age" class="block mt-1 w-full" type="date" name="age"  wire:model.lazy="age" required />
                     <x-jet-input-error for="age" />
                 </div>
-    
+                
                 <div class="col-span-1 lg:col-span-2">
                     <div class="flex">
                         <div class="w-full">
@@ -65,6 +65,18 @@
                                 @livewire('admin.eps.eps-create', ['texto' => '+'])
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex">
+                    <div class="">
+                        <x-jet-label for="doc_result" value="{{ __('Comprobantes') }}" />
+                        <x-jet-input id="doc_result" class="block mt-1 w-full" type="file" name="doc_result"  wire:model="doc_result" multiple />
+                        <x-jet-input-error for="doc_result" />
+                    </div>
+
+                    <div wire:loading wire:target="doc_result">
+                        <img class="w-2/3" src="{{ asset('imgs/upload-animated-gif-3.gif') }}" alt="uploading..." title="uploading...">
                     </div>
                 </div>
     
@@ -88,7 +100,7 @@
                 {{ __('Cancel') }}
             </x-jet-secondary-button>
     
-            <x-jet-button class="ml-3" wire:click="create" wire:loading.attr="disabled">
+            <x-jet-button class="ml-3" wire:click="create"  wire:loading.attr="disabled" wire:target="create, doc_result">
                 {{ __('Guardar Resultado') }}
             </x-jet-button>
     

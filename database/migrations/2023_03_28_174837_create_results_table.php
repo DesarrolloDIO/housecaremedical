@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('patient_identification');
             $table->string('identification_type');
             $table->string('name');
-            $table->unsignedBigInteger('age');
+            $table->date('age');
             $table->string('email')->nullable();
             $table->boolean('estatus')->default(1);
             $table->foreignId('eps_id')->references('id')->on('eps')->onDelete('cascade');

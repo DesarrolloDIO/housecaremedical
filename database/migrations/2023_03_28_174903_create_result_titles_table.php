@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('response');
             $table->foreignId('result_id')->references('id')->on('results')->onDelete('cascade');
             $table->boolean('estatus')->default(1);
+            $table->foreignId('eps_id')->references('id')->on('eps')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('update_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

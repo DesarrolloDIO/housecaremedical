@@ -11,7 +11,7 @@ class RolesCreate extends Component
     public $nombre = '';
 
     protected $rules = [
-        'nombre' => 'required|min:2|unique:proyectos',
+        'nombre' => 'required|min:2|unique:roles',
     ];
 
     public function showModal()

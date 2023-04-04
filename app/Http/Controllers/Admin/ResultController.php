@@ -56,9 +56,9 @@ class ResultController extends Controller
      * @param  \App\Models\Admin\Result  $result
      * @return \Illuminate\Http\Response
      */
-    public function edit(Result $result)
+    public function edit($id)
     {
-        //
+        return view('pages.result.edit', compact('id'));
     }
 
     /**

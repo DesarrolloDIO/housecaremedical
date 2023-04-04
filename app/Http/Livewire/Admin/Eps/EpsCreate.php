@@ -53,7 +53,7 @@ class EpsCreate extends Component
 
         $this->validate();
 
-        $user = Eps::create([
+        $eps = Eps::create([
             'name'    => $this->name,
             'phone'   => $this->phone,
             'address' => $this->address,
@@ -66,6 +66,7 @@ class EpsCreate extends Component
         $this->reset_data();
 
         $this->emit('render');
+        $this->emit('eps_created', $eps->id);
         $this->show = false;
     }
 

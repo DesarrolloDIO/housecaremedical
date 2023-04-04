@@ -6,7 +6,7 @@
 
     <x-jet-dialog-modal wire:model="show" id="create_group">
         <x-slot name="title">
-            {{ __('Crear Usuario') }}
+            {{ __('Crear Eps') }}
         </x-slot>
     
         <x-slot name="content">

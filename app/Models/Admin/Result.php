@@ -5,6 +5,7 @@ namespace App\Models\Admin;
 use App\Models\User;
 use App\Models\File;
 use App\Models\Admin\Eps;
+use App\Models\Admin\ResultTitle;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -30,9 +31,14 @@ class Result extends Model
             return $this->morphMany(File::class, 'fileable');
         }
 
+    public function resuls_details(){
+            return $this->hasMany(ResultTitle::class, 'result_id');
+        }
+        
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
+
 
     public function update_user(){
         return $this->belongsTo(User::class, 'update_user_id');

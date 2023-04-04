@@ -9,6 +9,10 @@ class ResultDetailsList extends Component
 
     public $id_use;
 
+    protected $listeners = [
+        'render'
+    ];
+
     public function render()
     {
         $data = [];

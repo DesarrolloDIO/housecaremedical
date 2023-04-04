@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Admin\Eps;
 use App\Models\Admin\Result;
 use Livewire\WithFileUploads;
+use Livewire\FileUploadConfiguration;
+use Illuminate\Support\Facades\Storage;
 
 class ResultCreate extends Component
 {
@@ -31,6 +33,8 @@ class ResultCreate extends Component
     public $email;
     public $eps_id;
     public $estatus = 1;
+
+    public $imageId = 1;
 
     public function eps_created($id){
         $this->eps_id = $id;
@@ -66,6 +70,24 @@ class ResultCreate extends Component
         $this->estatus = 1;
     }
 
+    protected function cleanupOldUploads()
+    {
+        if (FileUploadConfiguration::isUsingS3()) return;
+
+        $storage = FileUploadConfiguration::storage();
+
+        foreach ($storage->allFiles(FileUploadConfiguration::path()) as $filePathname) {
+            // On busy websites, this cleanup code can run in multiple threads causing part of the output
+            // of allFiles() to have already been deleted by another thread.
+            if (! $storage->exists($filePathname)) continue;
+
+            $yesterdaysStamp = now()->timestamp;
+            if ($yesterdaysStamp > $storage->lastModified($filePathname)) {
+                $storage->delete($filePathname);
+            }
+        }
+    }
+
     public function showModal()
     {$this->show = true;
         $this->reset_data();
@@ -77,6 +99,12 @@ class ResultCreate extends Component
         $this->reset_data();
     }
 
+    public function cleanUp()
+    {
+        $this->doc_result = null;
+        $this->imageId++;
+    }
+
     public function create()
     {
         $this->code                   = trim($this->code);
@@ -84,6 +112,8 @@ class ResultCreate extends Component
         $this->email                  = trim($this->email);
         $this->patient_identification = trim($this->patient_identification);
         $this->identification_type    = trim($this->identification_type);
+
+        // dd($this->doc_result);
         
 
         $this->validate();
@@ -110,6 +140,8 @@ class ResultCreate extends Component
         if($files_doc){
             $result->file()->createMany($files_doc);
         }
+
+        $this->cleanUp();
 
 
         $this->reset_data();

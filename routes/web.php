@@ -22,6 +22,10 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

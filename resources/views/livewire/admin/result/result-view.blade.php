@@ -78,13 +78,15 @@
 
     <div class="">
         <h1 class="text-2xl">Archivos de resultados</h1>
-        @forelse ($files as $item)
-        <div class="">
-            <a href="{{ Storage::url($item['url']) }}">{{ $item['url'] }}</a>
-        </div>
-        @empty
-            
-        @endforelse
+        <ul>
+            @forelse ($files as $item)
+            <li class="">
+                <a href="{!! asset('storage/'.$item['url']) !!}">{{ Str::replace('doc_result/', '', $item['url']) }}</a>
+            </li>
+            @empty
+                
+            @endforelse
+        </ul>
     </div>
     <div class="my-5 flex justify-center">
         

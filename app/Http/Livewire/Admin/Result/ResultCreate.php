@@ -60,7 +60,7 @@ class ResultCreate extends Component
 
     public function reset_data()
     {
-        $this->age = '';
+        $this->age = date('Y-d-m', time());
         $this->code = '';
         $this->name = '';
         $this->email = '';
@@ -70,23 +70,23 @@ class ResultCreate extends Component
         $this->estatus = 1;
     }
 
-    protected function cleanupOldUploads()
-    {
-        if (FileUploadConfiguration::isUsingS3()) return;
+    // protected function cleanupOldUploads()
+    // {
+    //     if (FileUploadConfiguration::isUsingS3()) return;
 
-        $storage = FileUploadConfiguration::storage();
+    //     $storage = FileUploadConfiguration::storage();
 
-        foreach ($storage->allFiles(FileUploadConfiguration::path()) as $filePathname) {
-            // On busy websites, this cleanup code can run in multiple threads causing part of the output
-            // of allFiles() to have already been deleted by another thread.
-            if (! $storage->exists($filePathname)) continue;
+    //     foreach ($storage->allFiles(FileUploadConfiguration::path()) as $filePathname) {
+    //         // On busy websites, this cleanup code can run in multiple threads causing part of the output
+    //         // of allFiles() to have already been deleted by another thread.
+    //         if (! $storage->exists($filePathname)) continue;
 
-            $yesterdaysStamp = now()->timestamp;
-            if ($yesterdaysStamp > $storage->lastModified($filePathname)) {
-                $storage->delete($filePathname);
-            }
-        }
-    }
+    //         $yesterdaysStamp = now()->timestamp;
+    //         if ($yesterdaysStamp > $storage->lastModified($filePathname)) {
+    //             $storage->delete($filePathname);
+    //         }
+    //     }
+    // }
 
     public function showModal()
     {$this->show = true;
@@ -113,7 +113,7 @@ class ResultCreate extends Component
         $this->patient_identification = trim($this->patient_identification);
         $this->identification_type    = trim($this->identification_type);
 
-        // dd($this->doc_result);
+        // dd($this->age);
         
 
         $this->validate();
@@ -146,8 +146,9 @@ class ResultCreate extends Component
 
         $this->reset_data();
 
-        $this->emit('render');
+        // $this->emit('render');
         $this->show = false;
+        return redirect()->route('result.edit', ['id' => $result->id]);
     }
 
     public function render()

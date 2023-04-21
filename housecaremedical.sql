@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 18, 2023 at 02:35 PM
+-- Generation Time: Apr 21, 2023 at 03:51 PM
 -- Server version: 8.0.27
 -- PHP Version: 8.0.13
 
@@ -93,27 +93,27 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(15, '2014_10_12_000000_create_users_table', 1),
-(16, '2014_10_12_100000_create_password_resets_table', 1),
-(17, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
-(18, '2019_08_19_000000_create_failed_jobs_table', 1),
-(19, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(20, '2020_05_21_100000_create_teams_table', 1),
-(21, '2020_05_21_200000_create_team_user_table', 1),
-(22, '2020_05_21_300000_create_team_invitations_table', 1),
-(23, '2023_01_27_230342_create_sessions_table', 1),
-(24, '2023_02_02_004918_create_permission_tables', 1),
-(25, '2023_03_28_174745_create_eps_table', 1),
-(26, '2023_03_28_174837_create_results_table', 1),
-(27, '2023_03_28_174903_create_result_titles_table', 1),
-(28, '2023_03_28_180401_create_files_table', 1);
+(29, '2014_10_12_000000_create_users_table', 1),
+(30, '2014_10_12_100000_create_password_resets_table', 1),
+(31, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
+(32, '2019_08_19_000000_create_failed_jobs_table', 1),
+(33, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(34, '2020_05_21_100000_create_teams_table', 1),
+(35, '2020_05_21_200000_create_team_user_table', 1),
+(36, '2020_05_21_300000_create_team_invitations_table', 1),
+(37, '2023_01_27_230342_create_sessions_table', 1),
+(38, '2023_02_02_004918_create_permission_tables', 1),
+(39, '2023_03_28_174745_create_eps_table', 1),
+(40, '2023_03_28_174837_create_results_table', 1),
+(41, '2023_03_28_174903_create_result_titles_table', 1),
+(42, '2023_03_28_180401_create_files_table', 1);
 
 -- --------------------------------------------------------
 
@@ -190,31 +190,31 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'eps.index', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(2, 'eps.show', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(3, 'eps.create', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(4, 'eps.edit', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(5, 'eps.delete', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(6, 'result.index', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(7, 'result.show', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(8, 'result.create', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(9, 'result.edit', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(10, 'result.delete', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(11, 'result-details.index', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(12, 'result-details.show', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(13, 'result-details.create', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(14, 'result-details.edit', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(15, 'result-details.delete', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(16, 'roles.index', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(17, 'roles.show', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(18, 'roles.create', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(19, 'roles.edit', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(20, 'roles.delete', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(21, 'users.index', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(22, 'users.show', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(23, 'users.create', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(24, 'users.edit', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(25, 'users.delete', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31');
+(1, 'eps.index', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(2, 'eps.show', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(3, 'eps.create', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(4, 'eps.edit', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(5, 'eps.delete', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(6, 'result.index', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(7, 'result.show', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(8, 'result.create', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(9, 'result.edit', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(10, 'result.delete', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(11, 'result-details.index', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(12, 'result-details.show', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(13, 'result-details.create', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(14, 'result-details.edit', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(15, 'result-details.delete', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(16, 'roles.index', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(17, 'roles.show', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(18, 'roles.create', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(19, 'roles.edit', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(20, 'roles.delete', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(21, 'users.index', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(22, 'users.show', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(23, 'users.create', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(24, 'users.edit', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(25, 'users.delete', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31');
 
 -- --------------------------------------------------------
 
@@ -313,9 +313,9 @@ CREATE TABLE IF NOT EXISTS `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'super-admin', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(2, 'admin', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(3, 'writer', 'web', '2023-04-18 19:35:31', '2023-04-18 19:35:31');
+(1, 'super-admin', 'web', '2023-04-21 20:50:31', '2023-04-21 20:50:31'),
+(2, 'admin', 'web', '2023-04-21 20:50:32', '2023-04-21 20:50:32'),
+(3, 'writer', 'web', '2023-04-21 20:50:32', '2023-04-21 20:50:32');
 
 -- --------------------------------------------------------
 
@@ -467,9 +467,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `telefono`, `activo`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'superadmin@example.com', '2023-04-18 19:35:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, NULL, 1, 'rvp7eFnh2B', NULL, NULL, '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(2, 'Admin User', 'admin@example.com', '2023-04-18 19:35:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, NULL, 1, 'hI5vP1oOu7', NULL, NULL, '2023-04-18 19:35:31', '2023-04-18 19:35:31'),
-(3, 'Example User', 'test@example.com', '2023-04-18 19:35:31', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, NULL, 1, 'AA7MWyv1IM', NULL, NULL, '2023-04-18 19:35:31', '2023-04-18 19:35:31');
+(1, 'Super Admin', 'superadmin@example.com', '2023-04-21 20:50:32', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, NULL, 1, 'SnWTg8oRG7', NULL, NULL, '2023-04-21 20:50:32', '2023-04-21 20:50:32'),
+(2, 'Admin User', 'admin@example.com', '2023-04-21 20:50:32', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, NULL, 1, 'LI0WYV90Ub', NULL, NULL, '2023-04-21 20:50:32', '2023-04-21 20:50:32'),
+(3, 'Example User', 'test@example.com', '2023-04-21 20:50:32', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, NULL, 1, 'Hkq9RG9lzl', NULL, NULL, '2023-04-21 20:50:32', '2023-04-21 20:50:32');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

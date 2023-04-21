@@ -2,8 +2,9 @@
 
 namespace App\Models\Admin;
 
-use App\Models\User;
 use App\Models\File;
+use App\Models\User;
+use App\Models\Admin\Eps;
 use App\Models\Admin\Result;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,6 +30,10 @@ class ResultTitle extends Model
 
     public function user(){
             return $this->belongsTo(User::class, 'user_id');
+        }
+
+    public function eps(){
+            return $this->belongsTo(Eps::class, 'eps_id');
         }
 
     public function result()

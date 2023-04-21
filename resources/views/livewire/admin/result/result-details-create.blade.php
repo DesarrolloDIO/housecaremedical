@@ -6,7 +6,7 @@
 
     <x-jet-dialog-modal wire:model="show" id="create_group">
         <x-slot name="title">
-            {{ __('Crear Resultado') }}
+            {{ $texto }}
         </x-slot>
     
         <x-slot name="content">
@@ -49,7 +49,7 @@
             </x-jet-secondary-button>
     
             <x-jet-button class="ml-3" wire:click="create" wire:loading.attr="disabled">
-                {{ __('Guardar Resultado') }}
+                {{ __('Guardar Detalle') }}
             </x-jet-button>
     
         </x-slot>

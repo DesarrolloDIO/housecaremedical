@@ -239,7 +239,7 @@
         <x-slot name="content">
 
             <div>
-                Seguro que quiere eliminar el usuario: <b>{{ $nombre_delete }}</b>.
+                Seguro que quiere eliminar el resultado: <b>{{ $nombre_delete }}</b>.
             </div>
 
         </x-slot>

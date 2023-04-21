@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\File as Files;
+use Illuminate\Support\Facades\File; 
+
 function openCypher($action='encrypt',$string=false)
 {
     $action = trim($action);
@@ -29,3 +32,28 @@ function openCypher($action='encrypt',$string=false)
 
     return $output;
 };
+
+function delete_file($id)
+    {   
+        //return "se va a eliminar el registro ".$id;
+        $file = Files::find($id);
+
+        if($file){
+            $old_file = $file->getPathFile();
+            // $old_file = str_replace("\\",'/', $old_file);
+            // return $old_file;
+            $eliminar = $file->delete();
+    
+            
+            // verifica si el archivo viejo aun existe en el servidor, si lo encuantra lo borra
+            if (File::exists($old_file)) {
+                
+                File::delete($old_file);
+            }
+    
+            return $eliminar;
+        }else{
+            return false;
+        }
+
+    }

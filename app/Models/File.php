@@ -17,6 +17,18 @@ class File extends Model
         'updated_at'
     ];
 
+    function getUrlAttribute($url){
+        return asset('storage/'.$url);
+    }
+    
+    function getPathFile(){
+        $url = str_replace(url('/'), public_path(), $this->url);
+        $url = str_replace("\\",'/', $url);
+        return $url;
+    }
+
+
+
     public $timestamps = true;
 
     public function fileable(){

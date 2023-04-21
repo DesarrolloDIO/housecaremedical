@@ -4,6 +4,7 @@ namespace App\Models\Admin;
 
 use App\Models\User;
 use App\Models\Admin\Result;
+use App\Models\Admin\ResultTitle;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -25,6 +26,10 @@ class Eps extends Model
         {
             return $this->belongsTo(Result::class);
         }
+
+    public function result_title(){
+        return $this->belongsTo(ResultTitle::class, 'eps_id');
+    }
 
     public function user(){
             return $this->belongsTo(User::class, 'user_id');

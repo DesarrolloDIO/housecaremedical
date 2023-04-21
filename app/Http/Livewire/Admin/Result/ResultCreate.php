@@ -148,7 +148,7 @@ class ResultCreate extends Component
 
         // $this->emit('render');
         $this->show = false;
-        return redirect()->route('result.edit', ['id' => $result->id]);
+        return redirect()->route('result.edit', ['result' => $result->id]);
     }
 
     public function render()

@@ -18,8 +18,8 @@ use App\Http\Controllers\Admin\ResultController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-    // return redirect()->route('login');
+    // return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/linkstorage', function () {

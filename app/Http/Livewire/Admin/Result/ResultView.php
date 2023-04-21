@@ -10,17 +10,19 @@ class ResultView extends Component
 {
     public $data;
     public $id_use;
+    public $id_use_delete;
 
-    public $files                   = [];
+    public $files                    = [];
+    public $show_confirmation_delete = false;
 
-    public $age                     = '';
-    public $name                    = '';
-    public $code                    = '';
-    public $email                   = '';
-    public $eps_id                  = '';
-    public $estatus                 = 1;
-    public $patient_identification  = '';
-    public $identification_type     = '';
+    public $age                      = '';
+    public $name                     = '';
+    public $code                     = '';
+    public $email                    = '';
+    public $eps_id                   = '';
+    public $estatus                  = 1;
+    public $patient_identification   = '';
+    public $identification_type      = '';
 
     protected $listeners = [
         'render', 
@@ -54,8 +56,24 @@ class ResultView extends Component
     }
 
     
-    
-    public function mount()
+    public function confirmation_delete($id){
+
+        $this->id_use_delete = $id;
+        $this->show_confirmation_delete = true;
+
+    }
+
+    public function delete_archive()
+    {
+        $f = delete_file($this->id_use_delete);
+
+        if($f){
+            $this->show_confirmation_delete = false;
+            $this->render();
+        }
+    }
+
+    public function get_data()
     {
         $data = Result::where('id', $this->id_use)->with('file')->first();
 
@@ -75,7 +93,11 @@ class ResultView extends Component
             $this->identification_type    = $data->identification_type;
             $this->patient_identification = $data->patient_identification;
         }
-
+    }
+    
+    public function mount()
+    {
+        $this->get_data();
     }
 
     public function update()

@@ -95,7 +95,7 @@
                                     </button>
                                 @endcan
                                 @can('eps.delete')
-                                    <button x-data="{ tooltip: 'Delete' }" wire:click="confirmation_delete({{ $item->id }}, '{{$item->nombre}}')">
+                                    <button x-data="{ tooltip: 'Delete' }" wire:click="confirmation_delete({{ $item->id }}, '{{ $item->name }}')">
                                         <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
@@ -256,7 +256,7 @@
         <x-slot name="content">
 
             <div>
-                Seguro que quiere eliminar el usuario: <b>{{ $nombre_delete }}</b>.
+                Seguro que quiere eliminar la eps: <b>{{ $nombre_delete }}</b>.
             </div>
 
         </x-slot>

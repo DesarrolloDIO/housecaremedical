@@ -110,9 +110,11 @@ class EpsList extends Component
 
     public function delete(){
 
-        $eps = Eps::where('id', $this->id_use)->with(['user', 'result'])->first();
+        $eps = Eps::where('id', $this->id_use)->with(['result_title', 'result'])->first();
+
+        // dd($eps);
         
-        if($user->user or $user->result){
+        if($eps->result or $eps->result_title){
             $this->show_confirmation_delete = false;
             $this->show_no_delete = true;
         }else{

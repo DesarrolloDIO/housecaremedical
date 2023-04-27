@@ -73,6 +73,25 @@
                 <x-jet-input-error for="estatus" />
             </div>
         </div>
+
+        <div class="mt-4"
+            
+            x-data="{ isUploading: false, progress: 0 }"
+            x-on:livewire-upload-start="isUploading = true"
+            x-on:livewire-upload-finish="isUploading = false"
+            x-on:livewire-upload-error="isUploading = false"
+            x-on:livewire-upload-progress="progress = $event.detail.progress"
+        >
+            <!-- File Input -->
+            <x-jet-label for="doc_result" value="{{ __('Agregar Comprobantes') }}" />
+            <x-jet-input id="{{ $imageId }}" class="block mt-1 w-full" type="file" name="doc_result"  wire:model="doc_result" multiple />
+            <x-jet-input-error for="doc_result" />
+        
+            <!-- Progress Bar -->
+            <div x-show="isUploading">
+                <progress max="100" x-bind:value="progress"></progress>
+            </div>
+        </div>
         
     </div>
 
@@ -139,7 +158,7 @@
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-        <x-jet-button wire:click="update" wire:loading.attr="disabled">
+        <x-jet-button wire:click="update" wire:loading.attr="disabled" wire:target="update, doc_result">
             {{ __('Guardar') }}
         </x-jet-button>
     </div>

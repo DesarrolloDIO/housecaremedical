@@ -128,7 +128,9 @@ class UserList extends Component
     public function render()
     {
         $roles = Role::get();
-        $data = User::buscar($this->search)->paginate($this->per_page);
+
+        $title = trim($this->search);
+        $data = User::buscar($title)->paginate($this->per_page);
         return view('livewire.admin.user.user-list', compact('data', 'roles'));
     }
 }

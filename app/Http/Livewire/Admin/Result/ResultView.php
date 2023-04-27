@@ -5,9 +5,13 @@ namespace App\Http\Livewire\Admin\Result;
 use Livewire\Component;
 use App\Models\Admin\Eps;
 use App\Models\Admin\Result;
+use Livewire\WithFileUploads;
 
 class ResultView extends Component
 {
+
+    use WithFileUploads;
+
     public $data;
     public $id_use;
     public $id_use_delete;
@@ -24,6 +28,16 @@ class ResultView extends Component
     public $patient_identification   = '';
     public $identification_type      = '';
 
+
+    public $doc_result = [];
+    public $imageId = 1;
+
+    public function cleanUp()
+    {
+        $this->doc_result = [];
+        $this->imageId = $this->imageId + 1;
+    }
+
     protected $listeners = [
         'render', 
         'eps_created' => 'eps_created'
@@ -36,7 +50,7 @@ class ResultView extends Component
 
     public function rules(){
         return [
-            'code' => ['required', 'string', 'max:255', 'unique:results,code,'.$this->code],
+            'code' => ['required', 'string', 'max:255', 'unique:results,code,'.$this->id_use],
             'patient_identification' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:results,email,'.$this->id_use],
@@ -100,6 +114,8 @@ class ResultView extends Component
         $this->get_data();
     }
 
+    
+
     public function update()
     {
         $this->code                   = trim($this->code);
@@ -107,6 +123,8 @@ class ResultView extends Component
         $this->email                  = trim($this->email);
         $this->patient_identification = trim($this->patient_identification);
         $this->identification_type    = trim($this->identification_type);
+
+        // dd($this->code);
         
         $this->validate();
 
@@ -124,6 +142,19 @@ class ResultView extends Component
             'patient_identification' => $this->patient_identification,
             'update_user_id'         => auth()->user()->id
         ]);
+
+        $files_doc = [];
+
+        foreach ($this->doc_result as $doc) {
+            $files_doc[]['url'] = $doc->store('doc_result');
+        }
+
+        if($files_doc){
+            $data->file()->createMany($files_doc);
+        }
+
+        $this->cleanUp();
+        $this->get_data();
 
         $this->emit('saved');
     }

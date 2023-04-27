@@ -45,11 +45,11 @@
                         <td class="px-6 py-4">
                             <div class="flex">
                                 @if($item->estatus)
-                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-green-500 text-white rounded-full shadow-sm">
+                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-blue-900 text-white rounded-lg shadow-sm">
                                         Activo
                                     </div>
                                 @else
-                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-red-500 text-white rounded-full shadow-sm">
+                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-red-500 text-white rounded-lg shadow-sm">
                                         Desactivado
                                     </div>
                                 @endif

@@ -1,17 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('inicio') }}
         </h2>
     </x-slot>
 
-    <div class="container mx-auto pt-4">
-        <div class="my-5 flex justify-end">
-            {{-- @livewire('admin.clave.clave-create') --}}
-        </div>
-
-        <div class="mb-6">
-            {{-- @livewire('admin.clave.clave-list') --}}
+    <div class="container mx-auto">
+        <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md mx-auto w-1/3">
+            <img class="w-full" src="{{ asset('imgs/ima-inicio@2x.jpg') }}" alt="">
         </div>
 
     </div>

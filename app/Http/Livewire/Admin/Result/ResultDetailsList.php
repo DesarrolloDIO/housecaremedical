@@ -4,8 +4,12 @@ namespace App\Http\Livewire\Admin\Result;
 
 use Livewire\Component;
 use App\Models\Admin\Result;
+
+
 class ResultDetailsList extends Component
 {
+
+    
 
     public $id_use;
 
@@ -15,6 +19,8 @@ class ResultDetailsList extends Component
     public $name = '';
     public $response = '';
     public $estatus = 1;
+
+    
 
     protected $listeners = [
         'render'
@@ -62,6 +68,8 @@ class ResultDetailsList extends Component
             'estatus'        => $this->estatus,
             'update_user_id' => auth()->user()->id
         ]);
+
+        
 
         $this->show = false;
         $this->emit('render');

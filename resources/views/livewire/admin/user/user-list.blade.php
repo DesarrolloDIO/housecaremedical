@@ -14,7 +14,7 @@
                 </div>
                 <div class="flex justify-end">
                     <div class="">
-                        <x-jet-label for="search" value="{{ __('Nombre') }}" />
+                        <x-jet-label for="search" value="{{ __('Nombre / Correo') }}" />
                         <x-jet-input id="search" wire:model="search" class="block" type="text" name="search"/>
                     </div>
                 </div>
@@ -43,11 +43,11 @@
                         <td class="px-6 py-4">
                             <div class="flex">
                                 @if($item->activo)
-                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-green-500 text-white rounded-full shadow-sm">
+                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-blue-900 text-white rounded-lg shadow-sm">
                                         Activo
                                     </div>
                                 @else
-                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-red-500 text-white rounded-full shadow-sm">
+                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-red-500 text-white rounded-lg shadow-sm">
                                         Desactivado
                                     </div>
                                 @endif
@@ -57,7 +57,7 @@
                             {{-- @json($item->roles) --}}
                             <div class="flex">
                                 @foreach ($item->roles as $value)
-                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-cyan-500 text-white rounded-full shadow-sm">
+                                    <div class="mx-1 px-2 py-1 font-semibold text-sm bg-red-600 text-white rounded-lg shadow-sm">
                                         {{ $value->name }}
                                     </div>
                                 @endforeach

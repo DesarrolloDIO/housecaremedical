@@ -1,7 +1,7 @@
 <div>
-    <x-jet-button wire:click="showModal">
+    <x-jet-danger-button wire:click="showModal">
         {{ __('Crear Rol') }}
-    </x-jet-button>
+    </x-jet-danger-button>
 
 
     <x-jet-dialog-modal wire:model="show" id="create_group">

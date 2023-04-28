@@ -53,7 +53,7 @@
             </x-jet-secondary-button>
     
             <x-jet-button class="ml-3" wire:click="create" wire:loading.attr="disabled">
-                {{ __('Guardar Eps') }}
+                {{ __('Guardar Ips') }}
             </x-jet-button>
     
         </x-slot>

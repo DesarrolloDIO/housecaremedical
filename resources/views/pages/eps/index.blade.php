@@ -2,12 +2,12 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
-            {{ __('Eps') }}
+            {{ __('Ips') }}
         </h2>
     </x-slot>
 
     <div class="container mx-auto pt-4">
-        @can('eps.create')
+        @can('ips.create')
             <div class="my-5 flex justify-end">
                 @livewire('admin.eps.eps-create')
             </div>

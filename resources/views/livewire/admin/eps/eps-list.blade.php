@@ -58,7 +58,7 @@
 
                         <td class="px-6 py-4">
                             <div class="flex justify-end gap-4">
-                                @can('eps.show')
+                                @can('ips.show')
                                     <button x-data="{ tooltip: 'Edite' }" wire:click="showModalItem({{ $item }})">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg" 
@@ -75,7 +75,7 @@
                                     </button>
                                 @endcan
 
-                                @can('eps.edit')
+                                @can('ips.edit')
                                     <button x-data="{ tooltip: 'Edite' }" wire:click="showModalEdit({{ $item }})">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@
                                         </svg>
                                     </button>
                                 @endcan
-                                @can('eps.delete')
+                                @can('ips.delete')
                                     <button x-data="{ tooltip: 'Delete' }" wire:click="confirmation_delete({{ $item->id }}, '{{ $item->name }}')">
                                         <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -256,7 +256,7 @@
         <x-slot name="content">
 
             <div>
-                Seguro que quiere eliminar la eps: <b>{{ $nombre_delete }}</b>.
+                Seguro que quiere eliminar la ips: <b>{{ $nombre_delete }}</b>.
             </div>
 
         </x-slot>

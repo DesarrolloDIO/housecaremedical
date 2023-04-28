@@ -7,7 +7,7 @@ use App\Models\Admin\Eps;
 
 class EpsCreate extends Component
 {
-    public $texto = 'Crear Eps';
+    public $texto = 'Crear Ips';
     public $show = false;
 
     public $name = '';

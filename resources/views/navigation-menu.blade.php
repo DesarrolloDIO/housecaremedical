@@ -16,9 +16,9 @@
                         {{ __('Inicio') }}
                     </x-jet-nav-link>
 
-                    @can('eps.index')
-                        <x-jet-nav-link href="{{ route('eps.index') }}" :active="request()->routeIs('eps.index')">
-                            {{ __('Eps') }}
+                    @can('ips.index')
+                        <x-jet-nav-link href="{{ route('ips.index') }}" :active="request()->routeIs('ips.index')">
+                            {{ __('Ips') }}
                         </x-jet-nav-link>
                     @endcan
 
@@ -173,9 +173,9 @@
                 </x-jet-responsive-nav-link>
             @endcan
 
-            @can('eps.index')
-                <x-jet-responsive-nav-link href="{{ route('eps.index') }}" :active="request()->routeIs('eps.index')">
-                    {{ __('Eps') }}
+            @can('ips.index')
+                <x-jet-responsive-nav-link href="{{ route('ips.index') }}" :active="request()->routeIs('ips.index')">
+                    {{ __('Ips') }}
                 </x-jet-responsive-nav-link>
             @endcan
             

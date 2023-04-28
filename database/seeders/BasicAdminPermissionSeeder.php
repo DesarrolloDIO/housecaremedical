@@ -22,11 +22,11 @@ class BasicAdminPermissionSeeder extends Seeder
         // create permissions
         $permissions = [
 
-            'eps.index',
-            'eps.show',
-            'eps.create',
-            'eps.edit',
-            'eps.delete',
+            'ips.index',
+            'ips.show',
+            'ips.create',
+            'ips.edit',
+            'ips.delete',
 
             'result.index',
             'result.show',
@@ -62,8 +62,8 @@ class BasicAdminPermissionSeeder extends Seeder
 
         // create demo users
         $user = \App\Models\User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@example.com',
+            'name' => 'Rosa Martinez Castro',
+            'email' => 'cardio1@housecaremedical.com',
         ]);
         $user->assignRole($role3);
 
@@ -83,8 +83,8 @@ class BasicAdminPermissionSeeder extends Seeder
         
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
+            'name' => 'Madeleine Terraza Jiménez', // 'Admin User' 
+            'email' => 'admisiones1@housecaremedical.com',
         ]);
         $user->assignRole($role2);
 

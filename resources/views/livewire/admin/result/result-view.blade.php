@@ -47,7 +47,7 @@
         <div class="">
             <div class="flex">
                 <div class="w-full">
-                    <x-jet-label for="eps_id" value="{{ __('Eps') }}" />
+                    <x-jet-label for="eps_id" value="{{ __('Ips') }}" />
                     <select name="eps_id" id="eps_id" wire:model.lazy="eps_id" class="w-full">
                         <option value=""></option>
                         @foreach ($eps as $item)

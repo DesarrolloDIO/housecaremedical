@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Result;
 
 use Livewire\Component;
 use App\Models\Admin\Result;
+use App\Models\Admin\ResultTitle;
 
 
 class ResultDetailsList extends Component

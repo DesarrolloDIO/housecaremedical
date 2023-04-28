@@ -37,7 +37,7 @@ Route::middleware([
 
     Route::group(['middleware' => ['auth', 'permission']], function() {
 
-        Route::resource('eps', EpsController::class);
+        Route::resource('ips', EpsController::class);
         Route::resource('result', ResultController::class);
         Route::resource('users', UserController::class);
         Route::resource('roles', RolesController::class);

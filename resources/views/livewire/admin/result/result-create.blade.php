@@ -51,7 +51,7 @@
                 <div class="col-span-1 lg:col-span-2">
                     <div class="flex">
                         <div class="w-full">
-                            <x-jet-label for="eps_id" value="{{ __('Eps') }}" />
+                            <x-jet-label for="eps_id" value="{{ __('Ips') }}" />
                             <select name="eps_id" id="eps_id" wire:model.lazy="eps_id" class="w-full">
                                 <option value=""></option>
                                 @foreach ($eps as $item)
@@ -60,11 +60,13 @@
                             </select>
                             <x-jet-input-error for="eps_id" />
                         </div>
-                        <div class="pl-3">
-                            <div class="my-6">
-                                @livewire('admin.eps.eps-create', ['texto' => '+'])
+                        @can('ips.create')
+                            <div class="pl-3">
+                                <div class="my-6">
+                                    @livewire('admin.eps.eps-create', ['texto' => '+'])
+                                </div>
                             </div>
-                        </div>
+                        @endcan
                     </div>
                 </div>
 
